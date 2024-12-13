@@ -10,7 +10,7 @@ import {
 } from './cart.styles';
 
 const Cart = ({ children, totalCount, totalPrice, hideElements }) => {
-	const letsHideElements = hideElements();
+	const letsHideElements = hideElements(); // aqui tengo que meter la función porque no es como el resto de componentes que se renderizan con cada acción
 
 	return (
 		<StyledCartContainer>
