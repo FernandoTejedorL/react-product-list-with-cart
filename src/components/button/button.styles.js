@@ -6,7 +6,10 @@ const StyledButton = styled.button`
 	height: 34px;
 	width: 76.87px;
 	border-radius: 20px;
-	background-color: ${COLORS.white};
+	background-color: ${({ $state, $active }) =>
+		$state === $active ? COLORS.red : COLORS.white};
+	color: ${({ $state, $active }) =>
+		$state === $active ? COLORS.white : 'black'};
 	border: 1px solid ${COLORS.rose400};
 	font-size: ${FONT_SIZE.s};
 	font-weight: ${FONT_WEIGHT.semibold};

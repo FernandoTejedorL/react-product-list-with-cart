@@ -101,6 +101,10 @@ const StyledDecreaseIncreaseButton = styled.button`
 		&:hover {
 			background-color: ${COLORS.white};
 		}
+		&:hover img {
+			filter: invert(32%) sepia(92%) saturate(6286%) hue-rotate(17deg)
+				brightness(94%) contrast(88%);
+		}
 	}
 `;
 

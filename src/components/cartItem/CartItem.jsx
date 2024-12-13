@@ -9,14 +9,14 @@ import {
 	StyledUnitaryPrice
 } from './cartItem.styles';
 
-const CartItem = () => {
+const CartItem = ({ name, price }) => {
 	return (
 		<StyledCartItem>
 			<StyledNameAndAmounts>
-				<StyledItemName></StyledItemName>
+				<StyledItemName>{name}</StyledItemName>
 				<StyledAmountAndPrices>
 					<StyledAmount></StyledAmount>
-					<StyledUnitaryPrice></StyledUnitaryPrice>
+					<StyledUnitaryPrice>{price.toFixed(2)}</StyledUnitaryPrice>
 					<StyledPricePerItem></StyledPricePerItem>
 				</StyledAmountAndPrices>
 			</StyledNameAndAmounts>

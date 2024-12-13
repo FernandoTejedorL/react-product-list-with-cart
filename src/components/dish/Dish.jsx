@@ -10,7 +10,7 @@ import {
 	StyledPrice
 } from './dish.styles';
 
-const Dish = ({ image, category, name, price }) => {
+const Dish = ({ image, category, name, price, actionAdd, toHide }) => {
 	return (
 		<StyledDish>
 			<picture>
@@ -19,19 +19,23 @@ const Dish = ({ image, category, name, price }) => {
 				<source media='(min-width: 359px )' srcSet={image.mobile} />
 				<StyledImage src='{image.mobile}' alt='' />
 			</picture>
-			<StyledAddToCart>
-				<img src='./assets/images/icon-add-to-cart.svg' alt='' />
-				<span>Add to Cart</span>
-			</StyledAddToCart>
-			<StyledHiddenAddToCart>
-				<StyledDecreaseIncreaseButton>
-					<img src='./assets/images/icon-decrement-quantity.svg' alt='' />
-				</StyledDecreaseIncreaseButton>
-				<span>1</span>
-				<StyledDecreaseIncreaseButton>
-					<img src='./assets/images/icon-increment-quantity.svg' alt='' />
-				</StyledDecreaseIncreaseButton>
-			</StyledHiddenAddToCart>
+			{!toHide && (
+				<StyledAddToCart onClick={actionAdd}>
+					<img src='./assets/images/icon-add-to-cart.svg' alt='' />
+					<span>Add to Cart</span>
+				</StyledAddToCart>
+			)}
+			{toHide && (
+				<StyledHiddenAddToCart>
+					<StyledDecreaseIncreaseButton>
+						<img src='./assets/images/icon-decrement-quantity.svg' alt='' />
+					</StyledDecreaseIncreaseButton>
+					<span>1</span>
+					<StyledDecreaseIncreaseButton>
+						<img src='./assets/images/icon-increment-quantity.svg' alt='' />
+					</StyledDecreaseIncreaseButton>
+				</StyledHiddenAddToCart>
+			)}
 			<StyledNameAndPrice>
 				<StyledCategory>{category}</StyledCategory>
 				<StyledName>{name}</StyledName>
