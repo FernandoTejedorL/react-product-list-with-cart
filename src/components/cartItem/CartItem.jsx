@@ -9,18 +9,20 @@ import {
 	StyledUnitaryPrice
 } from './cartItem.styles';
 
-const CartItem = ({ name, price }) => {
+const CartItem = ({ name, price, quantity, actionDelete }) => {
 	return (
 		<StyledCartItem>
 			<StyledNameAndAmounts>
 				<StyledItemName>{name}</StyledItemName>
 				<StyledAmountAndPrices>
-					<StyledAmount></StyledAmount>
+					<StyledAmount>{quantity}x</StyledAmount>
 					<StyledUnitaryPrice>@${price.toFixed(2)}</StyledUnitaryPrice>
-					<StyledPricePerItem></StyledPricePerItem>
+					<StyledPricePerItem>
+						${(quantity * price).toFixed(2)}
+					</StyledPricePerItem>
 				</StyledAmountAndPrices>
 			</StyledNameAndAmounts>
-			<StyledDeleteItem>
+			<StyledDeleteItem onClick={actionDelete}>
 				<img src='./assets/images/icon-remove-item.svg' alt='' />
 			</StyledDeleteItem>
 		</StyledCartItem>

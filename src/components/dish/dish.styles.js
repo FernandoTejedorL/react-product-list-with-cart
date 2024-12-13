@@ -19,7 +19,7 @@ const StyledImage = styled.img`
 	width: 327px;
 	height: 212px;
 	border-radius: 10px;
-
+	border: ${props => (props.toHide ? `2px solid ${COLORS.red}` : 'none')};
 	@media screen and (width>=768px) {
 		width: 212px;
 	}

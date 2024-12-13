@@ -16,6 +16,19 @@ const App = () => {
 	const toHide = id => {
 		return cart.some(item => item.id === id);
 	};
+	const quantityToDish = id => {
+		const dish = cart.find(item => item.id === id);
+		return dish ? dish.quantity : 0;
+	};
+
+	const totalQuantity = cart.reduce((acc, item) => acc + item.quantity, 0);
+	console.log(totalQuantity);
+
+	const totalPrice = cart.reduce(
+		(acc, item) => acc + item.price * item.quantity,
+		0
+	);
+	console.log(totalPrice);
 
 	return (
 		<>
@@ -46,15 +59,22 @@ const App = () => {
 					{newOrder(DISHES, order).map(dish => (
 						<Dish
 							actionAdd={() => actionAdd(cart, dish, setCart)}
+							actionIncrease={() => incrementQuantity(cart, dish, setCart)}
+							actionDecrease={() => decrementQuantity(cart, dish, setCart)}
 							toHide={toHide(dish.id)}
+							quantity={quantityToDish(dish.id)}
 							key={dish.id}
 							{...dish}
 						/>
 					))}
 				</DishesContainer>
-				<Cart>
+				<Cart totalCount={totalQuantity} totalPrice={totalPrice}>
 					{cart.map(item => (
-						<CartItem key={item.id} {...item} />
+						<CartItem
+							actionDelete={() => deleteFromCart(setCart, cart, item)}
+							key={item.id}
+							{...item}
+						/>
 					))}
 				</Cart>
 			</Main>
@@ -63,7 +83,32 @@ const App = () => {
 };
 
 const actionAdd = (cart, dish, setCart) => {
-	setCart([...cart, dish]);
+	setCart([...cart, { ...dish, quantity: 1 }]);
+};
+
+const incrementQuantity = (cart, dish, setCart) => {
+	setCart(
+		cart.map(item =>
+			item.id === dish.id ? { ...item, quantity: item.quantity + 1 } : item
+		)
+	);
+};
+
+const decrementQuantity = (cart, dish, setCart) => {
+	setCart(
+		cart
+			.map(item => {
+				if (item.id === dish.id && item.quantity >= 1) {
+					return { ...item, quantity: item.quantity - 1 };
+				}
+				return item;
+			})
+			.filter(item => item.quantity > 0)
+	);
+};
+
+const deleteFromCart = (setCart, cart, dish) => {
+	setCart(cart.filter(item => item.id !== dish.id));
 };
 
 const newOrder = (DISHES, order) => {

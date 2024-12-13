@@ -7,14 +7,14 @@ import {
 	StyledTotalPrice
 } from './cart.styles';
 
-const Cart = ({ children }) => {
+const Cart = ({ children, totalCount, totalPrice }) => {
 	return (
 		<StyledCartContainer>
-			<StyledCartHeader>Your Cart (7)</StyledCartHeader>
+			<StyledCartHeader>Your Cart ({totalCount})</StyledCartHeader>
 			<div>{children}</div>
 			<StyledOrderTotal>
 				<span>Order Total</span>
-				<StyledTotalPrice>$46.50</StyledTotalPrice>
+				<StyledTotalPrice>${totalPrice.toFixed(2)}</StyledTotalPrice>
 			</StyledOrderTotal>
 			<StyledCarbonNeutral>
 				<img src='./assets/images/icon-carbon-neutral.svg' alt='' />
