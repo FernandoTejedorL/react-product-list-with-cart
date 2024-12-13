@@ -1,5 +1,7 @@
+import { StyledDishesContainer } from './dishesContainer.styles';
+
 const DishesContainer = ({ children }) => {
-	return <div>{children}</div>;
+	return <StyledDishesContainer>{children}</StyledDishesContainer>;
 };
 
 export default DishesContainer;

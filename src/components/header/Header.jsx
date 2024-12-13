@@ -1,9 +1,15 @@
+import {
+	StyledButtonsContainer,
+	StyledHeader,
+	StyledTop
+} from './header.styles';
+
 const Header = ({ children }) => {
 	return (
-		<div>
-			<h1>Desserts</h1>
-			<div>{children}</div>
-		</div>
+		<StyledTop>
+			<StyledHeader>Desserts</StyledHeader>
+			<StyledButtonsContainer>{children}</StyledButtonsContainer>
+		</StyledTop>
 	);
 };
 

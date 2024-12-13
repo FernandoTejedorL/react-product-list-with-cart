@@ -1,6 +1,5 @@
 import { createGlobalStyle } from 'styled-components';
 import './normalize.css';
-import { FONT_WEIGHT } from './fonts';
 import { COLORS } from './colors';
 export const GlobalStyles = createGlobalStyle`
     *,
@@ -27,8 +26,18 @@ export const GlobalStyles = createGlobalStyle`
     }
 
     body{
-        font-weight: ${FONT_WEIGHT.regular};
-        background-color: ${COLORS.white};
+        font-family: "Red Hat Text", sans-serif;
+        padding: 144px 24px;    
+        background-color: ${COLORS.rose100}; 
+    }
+
+    h1, 
+    h2, 
+    h3, 
+    h4, 
+    h5, 
+    h6{
+        margin: 0;
     }
 
 `;

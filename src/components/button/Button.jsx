@@ -1,5 +1,7 @@
+import { StyledButton } from './button.styles';
+
 const Button = ({ title, setNewOrder }) => {
-	return <button onClick={setNewOrder}>{title}</button>;
+	return <StyledButton onClick={setNewOrder}>{title}</StyledButton>;
 };
 
 export default Button;
