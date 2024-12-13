@@ -71,11 +71,28 @@ const StyledCartButton = styled.button`
 	}
 `;
 
+const StyledImageToHide = styled.img`
+	height: 128px;
+	width: 128px;
+	align-self: center;
+	margin-top: 40px;
+	margin-bottom: 16px;
+`;
+
+const StyledTextToHide = styled.span`
+	font-size: ${FONT_SIZE.s};
+	font-weight: ${FONT_WEIGHT.semibold};
+	color: ${COLORS.rose500};
+	text-align: center;
+`;
+
 export {
 	StyledCartContainer,
 	StyledCartHeader,
 	StyledOrderTotal,
 	StyledTotalPrice,
 	StyledCarbonNeutral,
-	StyledCartButton
+	StyledCartButton,
+	StyledImageToHide,
+	StyledTextToHide
 };

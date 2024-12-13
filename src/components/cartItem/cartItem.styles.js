@@ -59,6 +59,9 @@ const StyledDeleteItem = styled.button`
 		&:hover {
 			border: 1px solid ${COLORS.rose900};
 		}
+		&:hover img {
+			filter: brightness(0%) contrast(100%);
+		}
 	}
 `;
 
