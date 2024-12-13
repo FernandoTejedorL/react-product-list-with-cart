@@ -11,7 +11,14 @@ const StyledCartContainer = styled.div`
 	background-color: ${COLORS.white};
 	border-radius: 8px;
 	padding: 24px;
-	margin-top: 24px;
+
+	@media screen and (width>=768px) {
+		width: 688px;
+	}
+
+	@media screen and (width>=1024px) {
+		width: 384px;
+	}
 `;
 
 const StyledCartHeader = styled.h3`

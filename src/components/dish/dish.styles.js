@@ -47,11 +47,11 @@ const StyledAddToCart = styled.button`
 	background-color: ${COLORS.white};
 	color: ${COLORS.rose900};
 
-	@media screen and (width>768px) {
+	@media screen and (width>=768px) {
 		left: 26.67px;
 	}
 
-	@media screen and (width>1024px) {
+	@media screen and (width>=1024px) {
 		top: 218px;
 		left: 45.33px;
 	}
@@ -80,11 +80,11 @@ const StyledHiddenAddToCart = styled.div`
 	border-radius: 20px;
 	background-color: ${COLORS.red};
 
-	@media screen and (width>768px) {
+	@media screen and (width>=768px) {
 		left: 26.67px;
 	}
 
-	@media screen and (width>1024px) {
+	@media screen and (width>=1024px) {
 		top: 218px;
 		left: 45.33px;
 	}

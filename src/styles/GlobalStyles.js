@@ -29,6 +29,10 @@ export const GlobalStyles = createGlobalStyle`
         font-family: "Red Hat Text", sans-serif;
         padding: 144px 24px;    
         background-color: ${COLORS.rose100}; 
+
+        @media screen and (width>=1024px){
+            padding: 132px 112px;
+        }
     }
 
     h1, 
