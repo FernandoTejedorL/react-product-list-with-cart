@@ -16,7 +16,7 @@ const CartItem = ({ name, price }) => {
 				<StyledItemName>{name}</StyledItemName>
 				<StyledAmountAndPrices>
 					<StyledAmount></StyledAmount>
-					<StyledUnitaryPrice>{price.toFixed(2)}</StyledUnitaryPrice>
+					<StyledUnitaryPrice>@${price.toFixed(2)}</StyledUnitaryPrice>
 					<StyledPricePerItem></StyledPricePerItem>
 				</StyledAmountAndPrices>
 			</StyledNameAndAmounts>
