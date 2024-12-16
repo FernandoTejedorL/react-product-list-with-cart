@@ -16,26 +16,29 @@ const Dish = ({
 	name,
 	price,
 	actionAdd,
-	toHide,
 	quantity,
 	actionIncrease,
-	actionDecrease
+	actionDecrease,
+	id,
+	cart
 }) => {
+	const isInCart = cart.some(item => item.id === id);
+
 	return (
 		<StyledDish>
 			<picture>
 				<source media='(min-width: 1023px )' srcSet={image.desktop} />
 				<source media='(min-width: 767px )' srcSet={image.tablet} />
 				<source media='(min-width: 359px )' srcSet={image.mobile} />
-				<StyledImage toHide={toHide} src='{image.mobile}' alt='' />
+				<StyledImage $isInCart={isInCart} src='{image.mobile}' alt='' />
 			</picture>
-			{!toHide && (
+			{!isInCart && (
 				<StyledAddToCart onClick={actionAdd}>
 					<img src='./assets/images/icon-add-to-cart.svg' alt='' />
 					<span>Add to Cart</span>
 				</StyledAddToCart>
 			)}
-			{toHide && (
+			{isInCart && (
 				<StyledHiddenAddToCart>
 					<StyledDecreaseIncreaseButton onClick={actionDecrease}>
 						<img src='./assets/images/icon-decrement-quantity.svg' alt='' />
