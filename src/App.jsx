@@ -13,28 +13,21 @@ const App = () => {
 	const [order, setOrder] = useState('default');
 	const [cart, setCart] = useState([]);
 	console.log(cart);
-	console.log('length ', cart.length);
 	const toHide = id => {
 		return cart.some(item => item.id === id);
 	};
-	console.log(toHide());
 	const quantityToDish = id => {
 		const dish = cart.find(item => item.id === id);
 		return dish ? dish.quantity : 0;
 	};
 	const totalQuantity = cart.reduce((acc, item) => acc + item.quantity, 0);
-	console.log(totalQuantity);
-
 	const totalPrice = cart.reduce(
 		(acc, item) => acc + item.price * item.quantity,
 		0
 	);
-	console.log(totalPrice);
 	const hideCartElements = () => {
 		return cart.length > 0;
 	};
-	console.log(hideCartElements());
-
 	return (
 		<>
 			<GlobalStyles />
