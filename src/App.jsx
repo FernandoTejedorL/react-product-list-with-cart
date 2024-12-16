@@ -7,6 +7,7 @@ import Header from './components/header/Header';
 import Main from './components/main/Main';
 import { GlobalStyles } from './styles/GlobalStyles';
 import Cart from './components/cart/Cart';
+import Modal from './components/modal/Modal';
 
 const App = () => {
 	const [order, setOrder] = useState('default');
@@ -17,6 +18,7 @@ const App = () => {
 		(acc, item) => acc + item.price * item.quantity,
 		0
 	);
+	console.log(cart);
 	return (
 		<>
 			<GlobalStyles />
@@ -61,6 +63,7 @@ const App = () => {
 					cart={cart}
 					setCart={setCart}
 				/>
+				<Modal cart={cart} totalCount={totalQuantity} totalPrice={totalPrice} />
 			</Main>
 		</>
 	);
