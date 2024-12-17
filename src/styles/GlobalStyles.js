@@ -33,6 +33,8 @@ export const GlobalStyles = createGlobalStyle`
         @media screen and (width>=1024px){
             padding: 132px 112px;
         }
+
+        overflow: ${({ $showModal }) => ($showModal ? 'hidden' : 'auto')}
     }
 
     h1, 

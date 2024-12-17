@@ -2,6 +2,18 @@ import styled from 'styled-components';
 import { COLORS } from '../../styles/colors';
 import { FONT_SIZE, FONT_WEIGHT, LINE_HEIGHT } from '../../styles/fonts';
 
+const StyledModalBackground = styled.div`
+	position: fixed;
+	top: 0;
+	left: 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100vh;
+	width: 100vw;
+	background-color: rgba(0, 0, 0, 0.5);
+`;
+
 const StyledModal = styled.div`
 	position: relative;
 	display: flex;
@@ -15,10 +27,6 @@ const StyledModal = styled.div`
 
 	@media screen and (width>=768px) {
 		width: 688px;
-	}
-
-	@media screen and (width>=1024px) {
-		width: 384px;
 	}
 `;
 
@@ -84,6 +92,7 @@ const StyledOrderedItems = styled.div`
 `;
 
 export {
+	StyledModalBackground,
 	StyledModal,
 	StyledVerification,
 	StyledVerificationTitle,

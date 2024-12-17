@@ -18,10 +18,11 @@ const App = () => {
 		(acc, item) => acc + item.price * item.quantity,
 		0
 	);
+	const [showModal, setShowModal] = useState(false);
 	console.log(cart);
 	return (
 		<>
-			<GlobalStyles />
+			<GlobalStyles $showModal={showModal} />
 
 			<Header text={order}>
 				<Button
@@ -47,13 +48,13 @@ const App = () => {
 				<DishesContainer>
 					{orderedDishes.map(dish => (
 						<Dish
-							actionAdd={() => actionAdd(cart, dish, setCart)}
+							key={dish.id}
+							{...dish}
 							cart={cart}
+							actionAdd={() => actionAdd(cart, dish, setCart)}
 							actionIncrease={() => incrementQuantity(cart, dish, setCart)}
 							actionDecrease={() => decrementQuantity(cart, dish, setCart)}
 							quantity={quantityToDish(dish.id, cart)}
-							key={dish.id}
-							{...dish}
 						/>
 					))}
 				</DishesContainer>
@@ -62,8 +63,17 @@ const App = () => {
 					totalPrice={totalPrice}
 					cart={cart}
 					setCart={setCart}
+					setShowModal={setShowModal}
 				/>
-				<Modal cart={cart} totalCount={totalQuantity} totalPrice={totalPrice} />
+				{showModal && (
+					<Modal
+						cart={cart}
+						setCart={setCart}
+						totalCount={totalQuantity}
+						totalPrice={totalPrice}
+						setShowModal={setShowModal}
+					/>
+				)}
 			</Main>
 		</>
 	);

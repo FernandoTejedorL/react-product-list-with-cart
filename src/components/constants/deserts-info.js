@@ -106,7 +106,7 @@ export const DISHES = [
 			desktop: '/assets/images/image-panna-cotta-desktop.jpg',
 			tablet: '/assets/images/image-panna-cotta-tablet.jpg',
 			mobile: '/assets/images/image-panna-cotta-mobile.jpg',
-			thumb: 'public/assets/images/image-panna-cotta-thumbnail.jpg'
+			thumb: '/assets/images/image-panna-cotta-thumbnail.jpg'
 		}
 	}
 ];

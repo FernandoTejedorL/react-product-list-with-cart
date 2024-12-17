@@ -11,7 +11,7 @@ import {
 	StyledTotalPrice
 } from './cart.styles';
 
-const Cart = ({ cart, setCart, totalCount, totalPrice }) => {
+const Cart = ({ cart, setCart, totalCount, totalPrice, setShowModal }) => {
 	const isEmptyCart = cart.length === 0;
 
 	return (
@@ -40,7 +40,11 @@ const Cart = ({ cart, setCart, totalCount, totalPrice }) => {
 					</span>
 				</StyledCarbonNeutral>
 			)}
-			{!isEmptyCart && <StyledCartButton>Confirm Order</StyledCartButton>}
+			{!isEmptyCart && (
+				<StyledCartButton onClick={() => setShowModal(true)}>
+					Confirm Order
+				</StyledCartButton>
+			)}
 			{isEmptyCart && (
 				<StyledImageToHide
 					src='/assets/images/illustration-empty-cart.svg'
